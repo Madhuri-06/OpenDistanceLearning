@@ -12,8 +12,9 @@ app.use(cors());
 
 app.use("/uploads", express.static("uploads"));
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+// var bodyParser = require('body-parser');
+app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 
 //TODO: Routes
 
@@ -44,7 +45,7 @@ mongoose
   .then(() => {
     console.log("Database connected...");
     app.listen(PORT, () => {
-      console.log(`Server is running on port ${PORT}`);
+      // console.log(Server is running on port ${PORT});
     });
   })
   .catch((err) => {

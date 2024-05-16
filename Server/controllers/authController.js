@@ -7,9 +7,9 @@ const { SECRET_KEY } = require("../config/keys");
 module.exports.register__controller = async (req, res, next) => {
   try {
     const { userName, email, password, confirmPassword } = req.body;
-
+    console.log(userName,email,password)
     const userInfo = await UserModel.findOne({ email });
-
+    
     if (userInfo) {
       return res.status(401).json({
         errors: { user: "User already exists" },

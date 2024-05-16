@@ -118,6 +118,10 @@ const Routing = () => {
         <Route exact path="/Admin-dashboard" element={<AdminDashboard/>}/>
       </Route>
       <Route exact path="/admin/course-info" element={<AdminCourseInfo/>}/>
+      <Route exact path="/course/:courseId" element={<CourseInfo/>}/>
+      <Route exact path="/admin/student-info" element={<StudentInfo/>}/>
+      <Route exact path="/admin/teacher-info" element={<TeacherInfo/>}/>
+      
    </Routes>
   );
 };

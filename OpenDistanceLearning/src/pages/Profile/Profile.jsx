@@ -96,7 +96,7 @@ const Profile = () => {
                 First access to site
               </Typography>
               <Typography variant="body1">
-                Sunday, 14 February 2021, 8:44 AM
+                
               </Typography>
               <br />
               <Typography
@@ -107,7 +107,7 @@ const Profile = () => {
                 Last access to site
               </Typography>
               <Typography variant="body1">
-                Wednesday, 5 May 2021, 2:44 PM
+                
               </Typography>
               <br />
               <Typography

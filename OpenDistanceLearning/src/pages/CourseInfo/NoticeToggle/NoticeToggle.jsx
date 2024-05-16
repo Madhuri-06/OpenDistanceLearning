@@ -20,10 +20,10 @@ const useStyles = createStyles((theme) => ({
     
 
   },
-  heading: {
-    fontSize: theme.typography.pxToRem(15),
-    fontWeight: theme.typography.fontWeightRegular,
-  },
+  // heading: {
+  //   fontSize: theme.typography.pxToRem(15),
+  //   fontWeight: theme.typography.fontWeightRegular,
+  // },
 }));
 
 

@@ -9,7 +9,7 @@ const CourseCard = ({title,name,id,img}) => {
     return (
         <LazyLoad height={200} offset={100} once={true} >
         <div className={Styles.course__Card}>
-            <Link to={`/course/${id}`} className={Styles.container}>
+            <Link to={`/course/${name}`} className={Styles.container}>
             <img className={Styles.image} src={img}alt=""/>
             <div className={Styles.overlay}>
             <p className={Styles.text}>View</p>

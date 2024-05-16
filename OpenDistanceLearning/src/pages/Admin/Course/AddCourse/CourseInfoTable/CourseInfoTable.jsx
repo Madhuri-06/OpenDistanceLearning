@@ -36,7 +36,7 @@ const useStyles = createStyles({
 });
 
 const CourseInfoTable = ({ course }) => {
-  const classes = useStyles();
+  const classes = useStyles
 
   const [data, setData] = useState([]);
   const dispatch = useDispatch();

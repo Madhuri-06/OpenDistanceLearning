@@ -31,12 +31,12 @@ const useStyles = createStyles({
 });
 
 const TeacherTable = () => {
-  const classes = useStyles();
+  const classes = useStyles
 
   const [data, setData] = useState([]);
 
   const userList = async () => {
-    const user = await Axios.get("/users/teacher",{
+    const user = await Axios.get("http://localhost:5000/users/teacher",{
         headers:{
             "Authorization":"Bearer "+localStorage.getItem("auth_token")
         }
@@ -59,7 +59,7 @@ const TeacherTable = () => {
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
   const emptyRows =
-    rowsPerPage - Math.min(rowsPerPage, data.length - page * rowsPerPage);
+    rowsPerPage - Math.min(rowsPerPage, data?.length - page * rowsPerPage);
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -92,9 +92,9 @@ const TeacherTable = () => {
           </TableHead>
           <TableBody>
             {(rowsPerPage > 0
-              ? data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+              ? data?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               : data
-            ).map((row) => (
+            )?.map((row) => (
               <TableRow key={row._id}>
                 <TableCell component="th" scope="row" align="center">
                   {row._id}
@@ -126,7 +126,7 @@ const TeacherTable = () => {
               <TablePagination
                 rowsPerPageOptions={[5, 7, 10, 25, { label: "All", value: -1 }]}
                 colSpan={3}
-                count={data.length}
+                count={data?.length}
                 rowsPerPage={rowsPerPage}
                 page={page}
                 SelectProps={{

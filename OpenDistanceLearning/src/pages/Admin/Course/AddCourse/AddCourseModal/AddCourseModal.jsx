@@ -28,6 +28,11 @@ const AddCourseModal = () => {
     setImgLabel(courseThumbnail.name);
   }, [courseThumbnail]);
 
+  const setImageValue = (e) => {
+    console.log(e.target.files[0]);
+    setCourseThumbnail(e.target.files[0]);
+  };
+
   const courseFormHandler = (e) => {
     e.preventDefault();
     setLoading(true);
@@ -35,16 +40,14 @@ const AddCourseModal = () => {
     formData.append("courseName", courseName);
     formData.append("courseDescription", courseDescription);
     formData.append("img", courseThumbnail);
+    // console.log(courseThumbnail)
     console.log(localStorage.getItem("auth_token"))
     fetch("http://localhost:5000/post-course", {
        headers: {
-        'Content-Type': 'application/json',
         Authorization: "Bearer " + localStorage.getItem("auth_token"),
       },
       body: formData,
       method: "post",
-      mode: 'no-cors',
-     
     })
       .then((res) => res.json())
       .then((result) => {
@@ -121,7 +124,7 @@ const AddCourseModal = () => {
                 required
                 type="file"
                 filename="img"
-                onChange={(e) => setCourseThumbnail(e.target.files[0])}
+                onChange={setImageValue}
                 id="custom-file"
                 custom
                 label={imgLabel ? `${imgLabel}` : "Choose photo"}
